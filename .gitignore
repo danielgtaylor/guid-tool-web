@@ -1,0 +1,3 @@
+*.pyc
+*.pyd
+src/static/guid-convert.js
