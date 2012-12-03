@@ -7,12 +7,13 @@ class window.GuidTool
     @init: =>
         $('#guid').select()
 
-        delay 1500, =>
-            $('#footer').fadeIn()
+        delay 2000, =>
+            $('.nav, #footer').fadeIn()
 
         $('#submit').click (event) =>
             event.preventDefault()
             GuidTool.query $('#guid').val()
+            $('#guid').val('').focus()
 
     # Query the server for a given GUID
     @query: (guid) =>
@@ -26,6 +27,7 @@ class window.GuidTool
                 if data.status is 'success'
                     html = '<div class="result"><label>Int:</label>' + data.int + '<br/><label>Hex:</label>' + data.hex + '<br/><label>B64:</label>' + data.b64 + '</div>'
                 else
+                    guid = "no input given" if guid is ''
                     html = '<div class="result error">Invalid input: ' + guid + '</div>'
 
                 $('#results').prepend(html)

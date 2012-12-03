@@ -3,11 +3,16 @@
 <head>
     <title>Online GUID Conversion Tool To Convert Hex Base64 Int</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+    <link href="http://netdna.bootstrapcdn.com/bootswatch/2.1.1/slate/bootstrap.min.css" rel="stylesheet"/>
     <link href="/static/guid-convert.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="container">
+        <ul class="nav nav-pills pull-right" style="display: none">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#aboutModal" data-toggle="modal">About</a></li>
+            <li><a href="#apiModal" data-toggle="modal">API</a></li>
+        </ul>
         <div class="well" style="margin: 5em auto 0 auto; max-width: 600px">
             <form class="form-search" style="margin:0">
                 <input id="guid" class="search-query" type="text" placeholder="GUID"/>
@@ -20,6 +25,45 @@
         <div id="footer" style="text-align: center; display: none;">
             Copyright 2012 Daniel G. Taylor
             <a href="https://github.com/danielgtaylor/guid-tool-web"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+        </div>
+    </div>
+    <div id="aboutModal" class="modal fade hide">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>About <abbr title="Globally Unique Identifier">GUID</abbr> Converter</h3>
+        </div>
+        <div class="modal-body">
+            <p>
+                A simple tool to convert between various forms of representation of <abbr title="Globally Unique Identifier">GUID</abbr>s or <abbr title="Universally Unique Identifier">UUID</abbr>s. Input can be given as either a little-endian integer, hexadecimal or base64-encoded string and all three representations will be given back.
+            </p>
+            <p>
+                This tool is provided for free for anyone to use and is hosted on Google App Engine, written in Python + Coffeescript and is open source with the <a href="https://github.com/danielgtaylor/guid-tool-web">code available on Github</a>.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+    <div id="apiModal" class="modal fade hide">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3><abbr title="Globally Unique Identifier">GUID</abbr> Converter API</h3>
+        </div>
+        <div class="modal-body">
+            <p>
+                A simple API is available for anyone to use. For example:
+            </p>
+            <pre>curl -d 'guid=2b88f261-bf4a-4972-90ad-845dac554a06' http://guid-convert.appspot.com/</pre>
+            <p>Would return the following:</p>
+            <pre>{
+    "status": "success",
+    "int": "57867872278969410912862791724044732934",
+    "hex": "2b88f261-bf4a-4972-90ad-845dac554a06",
+    "b64": "YfKIK0q/ckmQrYRdrFVKBg=="
+}</pre>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>

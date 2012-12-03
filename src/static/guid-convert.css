@@ -2,7 +2,7 @@
     max-width: 600px;
     padding: 19px;
     margin: 1em auto;
-    border: 1px solid #eee;
+    border: 1px solid #373B40;
     border-radius: 5px;
 }
 
@@ -13,8 +13,12 @@
 }
 
 .error {
-    background-color: #fee;
-    border-color: #edd;
+    background-color: #511;
+    border-color: #622;
+}
+
+.nav-pills a {
+    background: transparent !important;
 }
 
 #guid {
@@ -27,6 +31,6 @@
 }
 
 #footer {
-    color: #aaa;
+    color: #666;
     margin-top: 1em;
 }
