@@ -15,6 +15,13 @@ class window.GuidTool
             GuidTool.query $('#guid').val()
             $('#guid').val('').focus()
 
+    # RFC 4122 Section 4.4 GUID generation from pseudo-random numbers
+    @generate: =>
+        'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace /[xy]/g, (c) =>
+            r = Math.random() * 16 | 0
+            v = if c is 'x' then r else r & 0x3 | 0x8
+            return v.toString 16
+
     # Query the server for a given GUID
     @query: (guid) =>
         $.ajax
