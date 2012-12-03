@@ -15,7 +15,8 @@
         <div class="well" style="margin: 5em auto 0 auto; max-width: 600px">
             <form class="form-search" style="margin:0">
                 <input id="guid" class="search-query" type="text" placeholder="GUID"/>
-                <button id="submit" type="submit" class="btn">Convert</button>
+                <button id="generate" class="btn"><i class="icon-white icon-random"></i></button>
+                <button id="submit" type="submit" class="btn"><i class="icon-white icon-search"></i> Convert</button>
             </form>
         </div>
         <div id="results">
@@ -52,13 +53,26 @@
             <p>
                 A simple API is available for anyone to use. For example:
             </p>
-            <pre>curl -d 'guid=2b88f261-bf4a-4972-90ad-845dac554a06' http://guid-convert.appspot.com/</pre>
-            <p>Would return the following:</p>
+            <pre>curl -d 'guid=2b88f261-bf4a-4972-90ad-845dac554a06' http://guid-convert.appspot.com/query</pre>
+            <p>
+                Would return the following:
+            </p>
             <pre>{
     "status": "success",
     "int": "57867872278969410912862791724044732934",
     "hex": "2b88f261-bf4a-4972-90ad-845dac554a06",
     "b64": "YfKIK0q/ckmQrYRdrFVKBg=="
+}</pre>
+            <p>
+                You can generate a new <abbr title="Globally Unique Identifier">GUID</abbr> via:
+            </p>
+            <pre>curl -d '' http://guid-convert.appspot.com/new</pre>
+            <p>
+                Which returns something like:
+            </p>
+            <pre>{
+    "status": "success",
+    "guid": "2b88f261-bf4a-4972-90ad-845dac554a06"
 }</pre>
         </div>
         <div class="modal-footer">

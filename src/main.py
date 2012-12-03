@@ -33,6 +33,20 @@ class IndexHandler(BaseHandler):
     def get(self):
         self.render('index.html')
 
+
+class GenerateHandler(BaseHandler):
+    def post(self):
+        # Enable CORS
+        self.response.headers["Access-Control-Allow-Origin"] = "*"
+
+        # Generate a UUID and return it
+        self.render_json({
+            'status': 'success',
+            'guid': str(uuid.uuid4())
+        })
+
+
+class QueryHandler(BaseHandler):
     def post(self):
         # Enable CORS
         self.response.headers["Access-Control-Allow-Origin"] = "*"
@@ -67,6 +81,8 @@ class IndexHandler(BaseHandler):
 
 
 urls = [
+    ('/new', GenerateHandler),
+    ('/query', QueryHandler),
     ('/', IndexHandler)
 ]
 

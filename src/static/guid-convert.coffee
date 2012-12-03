@@ -10,13 +10,25 @@ class window.GuidTool
         delay 2000, =>
             $('.nav, #footer').fadeIn()
 
+        $('#generate').click (event) =>
+            event.preventDefault()
+            $('#guid').val GuidTool.generateRandom()
+
         $('#submit').click (event) =>
             event.preventDefault()
             GuidTool.query $('#guid').val()
             $('#guid').val('').focus()
 
-    # RFC 4122 Section 4.4 GUID generation from pseudo-random numbers
+    # Generate new GUID on the server and return it
     @generate: =>
+        $.ajax
+            url: '/new'
+            type: 'post'
+            success: (data, status, xhr) =>
+                return data.guid
+
+    # RFC 4122 Section 4.4 GUID generation from pseudo-random numbers
+    @generateRandom: =>
         'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace /[xy]/g, (c) =>
             r = Math.random() * 16 | 0
             v = if c is 'x' then r else r & 0x3 | 0x8
@@ -25,7 +37,7 @@ class window.GuidTool
     # Query the server for a given GUID
     @query: (guid) =>
         $.ajax
-            url: '/'
+            url: '/query'
             type: 'post'
             data:
                 guid: guid

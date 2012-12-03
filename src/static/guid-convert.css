@@ -22,12 +22,17 @@
 }
 
 #guid {
-    width: 75%;
+    width: 64%;
+}
+
+#generate {
+    width: 7%;
+    margin-left: 2%;
 }
 
 #submit {
-    width: 15%;
-    margin-left: 3%;
+    width: 18%;
+    margin-left: 2%;
 }
 
 #footer {
