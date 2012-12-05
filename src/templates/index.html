@@ -10,6 +10,7 @@
     <div class="container">
         <ul class="nav nav-pills pull-right" style="display: none">
             <li><a href="#aboutModal" data-toggle="modal">About</a></li>
+            <li><a href="#downloadModal" data-toggle="modal">Download</a></li>
             <li><a href="#apiModal" data-toggle="modal">API</a></li>
         </ul>
         <div class="well" style="margin: 5em auto 0 auto; max-width: 600px">
@@ -38,6 +39,28 @@
             </p>
             <p>
                 This tool is provided for free for anyone to use and is hosted on Google App Engine, written in Python + Coffeescript and is open source with the <a href="https://github.com/danielgtaylor/guid-tool-web">code available on Github</a>.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+    <div id="downloadModal" class="modal fade hide">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Download <abbr title="Globally Unique Identifier">GUID</abbr> Converter</h3>
+        </div>
+        <div class="modal-body">
+            <p>
+                You can download a copy of the conversion tool. If you have Python installed, it's as simple as:
+            </p>
+            <pre>pip install guid-tool</pre>
+            <p>
+                Then you can run the tool, giving the <abbr title="Globally Unique Identifier">GUID</abbr> as an argument:
+            </p>
+            <pre>guid-tool 2b88f261-bf4a-4972-90ad-845dac554a06</pre>
+            <p>
+                The tool is also open source with the <a href="https://github.com/danielgtaylor/guid-tool">code available on GitHub</a>.
             </p>
         </div>
         <div class="modal-footer">
