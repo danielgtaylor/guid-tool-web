@@ -44,9 +44,10 @@ class window.GuidTool
             success: (data, status, xhr) =>
                 # Check for success and show conversions or error
                 if data.status is 'success'
-                    html = '<div class="result"><label>Int:</label>' + data.int + '<br/><label>Hex:</label>' + data.hex + '<br/><label>B64:</label>' + data.b64 + '</div>'
+                    html = '<div class="result" style="display: none;"><label>Int:</label>' + data.int + '<br/><label>Hex:</label>' + data.hex + '<br/><label>B64:</label>' + data.b64 + '</div>'
                 else
                     guid = "no input given" if guid is ''
-                    html = '<div class="result error">Invalid input: ' + guid + '</div>'
+                    html = '<div class="result error" style="display: none;">Invalid input: ' + guid + '</div>'
 
                 $('#results').prepend(html)
+                $('#results div:first-child').fadeIn()
